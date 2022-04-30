@@ -94,7 +94,7 @@ def downloadTrackImage(database, track_id, download_path, file_name=None):
     if fullpath[-1] != "/":
         fullpath += "/"
     fs = gridfs.GridFS(database)
-    data = database.fs.files.find_one({"filename":re.Regex(str(track_id)+"_img.*")})
+    data = database.fs.files.find_one({"filename":re.Regex(str(float(track_id))+"_img.*")})
     if data is None:
         return False
     fullpath += data["filename"] if file_name is None else file_name 

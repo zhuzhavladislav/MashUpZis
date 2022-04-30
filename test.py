@@ -30,7 +30,7 @@ CheckSearch(database)
 #     print(exc)
 
 ## Скачивание по id 
-#print(downloadTrackImage(database, 4, "путь к папке для скачивания"))
+# print(downloadTrackImage(database, 4, "путь к папке для скачивания"))
 # print(downloadTrackAudio(database, 4, "путь к папке для скачивания"))
 
 client.close()

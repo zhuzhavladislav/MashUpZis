@@ -178,3 +178,115 @@ header > hr {
 span#tracktime{
     padding-left: 25px;
 }
+
+/* Футер */
+#footer {
+	max-width: 1050px;
+	margin-top: 1200px;
+	margin-right:auto;
+	margin-left:auto;
+	padding: 20px 0;
+	height: 130px;
+}
+
+footer h3 {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 20px;
+	color: #FFFFFF;
+	margin: 5px 0;
+}
+
+footer p {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 12px;
+	color: #FFFFFF;
+	margin: 5px 0;
+}
+
+.name {
+	display: flex;
+	flex-direction: row;
+	float: left;
+	width: 500px;
+    font-size: 46px;
+}
+
+.contacts {
+	display: flex;
+	flex-direction: row;
+	float: left;
+	width: 500px;
+}
+.contacts p {
+	font-size: 22px;
+	font-weight: 200;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+.contacts h3 {
+	margin-top: 10px;
+}
+
+.terms {
+	width: 500px;
+	display: flex;
+	flex-direction: row;
+	float: left;
+}
+.terms p {
+	margin-right: 30px;
+	font-weight: 200;
+}
+
+.up {
+	display: flex;
+	flex-direction: row;
+
+}
+.up h3 {
+	margin-left: auto;
+	margin-right: 0px;
+	margin-top: 10px;
+	margin-bottom: 12px;
+}
+.up img {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+p {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 200;
+	font-size: 13px;
+	line-height: 1.6;
+	color: #FFFFFF;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 64px;
+	line-height: 1.1;
+	color: #FFFFFF;
+	margin: 0;
+}
+
+h2 {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 48px;
+	color: #FFFFFF;
+	margin: 0;
+}

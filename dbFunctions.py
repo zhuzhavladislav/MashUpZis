@@ -20,9 +20,12 @@ def getNewTrackId(database):
     Keyword arguments:
     database -- instance of database
     """ 
-    return database.tracks.find().sort("_id",-1).limit(1)[0]["_id"] + 1
+    if(database.tracks.find_one() is None):
+        return 1
+    else:
+        return database.tracks.find().sort("_id",-1).limit(1)[0]["_id"] + 1
 
-def uploadTrack(client, database, track_name, track_description=None, track_photo_path=None, track_file_path=None):
+def uploadTrack(client, database, track_name, track_file_path, track_photo_path=None, track_description=None):
     """Uploads track into MongoDB
     
     Keyword arguments:
@@ -56,7 +59,7 @@ def uploadTrack(client, database, track_name, track_description=None, track_phot
                         file_data = open(track_photo_path, "rb")
                         data = file_data.read()
                         fs = gridfs.GridFS(database)
-                        fs.put(data, filename = str(new_id) + "_img." + track_photo_path.split(".")[-1])
+                        fs.put(data, filename = str(new_id) + "_img", extension = extension)
                         file_data.close()
                     except Exception as exc:
                         raise ValueError("Can't upload image " + str(exc))
@@ -71,14 +74,14 @@ def uploadTrack(client, database, track_name, track_description=None, track_phot
                         file_data = open(track_file_path, "rb")
                         data = file_data.read()
                         fs = gridfs.GridFS(database)
-                        fs.put(data, filename = str(new_id) + "_audio." + track_file_path.split(".")[-1])
+                        fs.put(data, filename = str(new_id) + "_audio", extension = extension)
                         file_data.close()
                     except Exception as exc:
                         raise ValueError("Can't upload audio file " + str(exc))
                 else:
                     raise ValueError("track_file_path must be string value")
 
-def downloadTrackImage(database, track_id, download_path, file_name=None):
+def downloadTrackImage(database, track_id, download_path):
     """Downloads image of track. Returns true if success.
     
     Keyword arguments:
@@ -97,9 +100,17 @@ def downloadTrackImage(database, track_id, download_path, file_name=None):
     data = database.fs.files.find_one({"filename":re.Regex(str(float(track_id))+"_img.*")})
     if data is None:
         return False
-    fullpath += data["filename"] if file_name is None else file_name 
-    if os.path.exists(fullpath):
-        raise ValueError("File with such name already exists")
+    fullpath += data["filename"]
+    if os.path.exists(fullpath + "." + data["extension"]):
+        counter = 1
+        while True:
+            newpath = fullpath + " (" + str(counter) + ")"
+            if os.path.exists(newpath + "." + data["extension"]):
+                counter += 1
+            else:
+                fullpath = newpath
+                break
+    fullpath +=  "." + data["extension"]
     fs_id = data["_id"]
     outputdata = fs.get(fs_id).read()
     output = open(fullpath, "wb")
@@ -126,9 +137,17 @@ def downloadTrackAudio(database, track_id, download_path, file_name = None):
     data = database.fs.files.find_one({"filename":re.Regex(str(float(track_id))+"_audio.*")})
     if data is None:
         return False
-    fullpath += data["filename"] if file_name is None else file_name 
-    if os.path.exists(fullpath):
-        raise ValueError("File with such name already exists")
+    fullpath += database.track.find_one({"_id":track_id})["track_name"] if file_name is None else file_name 
+    if os.path.exists(fullpath + "." + data["extension"]):
+        counter = 1
+        while True:
+            newpath = fullpath + " (" + str(counter) + ")" 
+            if os.path.exists(newpath + "." + data["extension"]):
+                counter += 1
+            else:
+                fullpath = newpath
+                break
+    fullpath +=  "." + data["extension"]
     fs_id = data["_id"]
     outputdata = fs.get(fs_id).read()
     output = open(fullpath, "wb")
@@ -147,6 +166,6 @@ def deleteTrack(client, database, track_id):
     result = 0
     with client.start_session() as session:
         with session.start_transaction():
-            result = database.tracks.delete_one({"_id":track_id}).acknowleged
+            result = database.tracks.delete_one({"_id":track_id}).acknowledged
             database.fs.files.delete_many({"filename":re.Regex(str(track_id) + ".*", 'i')})
     return result

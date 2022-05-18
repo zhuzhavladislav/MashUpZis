@@ -1,0 +1,173 @@
+body{
+    color: #fff;
+}
+.d1{
+    width: 800px;
+    height: 20px;
+    padding-top: 75px;
+    margin: auto;
+}
+.d1 input{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 21px;
+    width: 100%;
+    padding: 10px 15px;
+    color: #fff;
+}
+.search{
+    display: flex;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 35px;
+}
+.lupa{
+    padding: 10px 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.search button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.btn-genres{
+    display: flex;
+    color: #fff;
+    gap: 50px;
+}
+.btn-genres span{
+    padding-top: 10px;
+    padding-left: 30px;
+    font-size: 20px;
+}
+.btn-genres button{
+    color: #fff;
+	width: 80px;
+	height: 40px;
+    background: transparent;
+	border: 1px solid #FFFFFF;
+	border-radius: 50px;
+    font-family: 'Inter';
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.btn-genres button:hover{
+    background: linear-gradient(93.7deg, #2603FB 0%, #DC06FF 86.1%);
+}
+.playlist{
+    margin: auto;
+    margin-top: 100px;
+    height: 50px;
+}
+.play{
+    background: transparent;
+    border: none;
+    background-image: url(../images/Vector.svg);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    cursor: pointer;
+}
+.pause{
+    background: transparent;
+    border: none;
+    background-image: url(../images/pause.svg);
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
+    margin-left: auto;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.audio-track{
+    width: 150px;
+    height: 3px;
+    background-color: #ddd;
+    margin: 20px 0;
+    margin-left: auto;
+}
+.time{
+    width: 0;
+    height: 3px;
+    background-color: #474747;
+}
+.song{
+    display: flex;
+    height: 100px;
+}
+.song span{
+    margin-top: 8px;
+}
+.cover{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(154, 154, 154);
+    margin: -10px 40px;
+}
+/* верстка меню влада */
+body {
+	background-color: #000000;
+    background-image: url(../images/bg.jpg);
+	background-repeat: repeat;
+	background-size: cover;
+	margin: 0;
+}
+#wrapper {
+	max-width: 1050px;
+	margin: auto;
+}
+header {
+	padding: 0px 0;
+}
+header > hr { 
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.div-list {
+	margin-right: -45px;
+	margin-left: -45px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-right: 45px;
+	padding-left: 45px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: flex;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-list {
+	margin-left: auto; 
+	margin-right: 0;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.top-menu li {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	display: inline-block;
+	padding: 10px 30px;
+	margin: 0;
+}
+
+.top-menu li.active {
+	color: #FFFFFF;
+}
+
+.top-menu a:hover {
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.top-menu a {
+	text-decoration: none;
+	color: #FFFFFF;
+}

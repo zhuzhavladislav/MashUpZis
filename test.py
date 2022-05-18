@@ -14,23 +14,22 @@ def CheckSearch(database, query = ""):
 client = MongoClient()
 database = client["dbmashup"]
 
-CheckSearch(database)
-
-# deleteTrack(client, database, 4)
+# CheckSearch(database)
+# deleteTrack(client, database, 5)
 # deleteTrack(client, database, 5)
 
 ## пример загрузки
 # try:
-#     uploadTrack(client, database, "done - Rap God Rick", None, "someimage.jpg", "audio/done - Rap God Rick.mp3")
-# except Exception() as exc:
-#     print(exc)
-# try:
-#     uploadTrack(client, database, "heyoka vs cage - the elephant", "grimeatron mash up", None, "audio/heyoka vs cage - the elephant (grimeatron mash up).mp3")
+#     uploadTrack(client, database, "prekoil - эмалированная кукуруза", "audio/prekoil - эмалированная кукуруза.mp3", None, None)
 # except Exception() as exc:
 #     print(exc)
 
+# deleteTrack(client, database, 10)
+
+CheckSearch(database)
 ## Скачивание по id 
-# print(downloadTrackImage(database, 4, "C:/Users/Nikolay/Desktop/"))
-# print(downloadTrackAudio(database, 4, "путь к папке для скачивания"))
+# for i in range(3):
+#     print(downloadTrackImage(database, 4, "C:/Users/Nikolay/Desktop/"))
+#     print(downloadTrackAudio(database, 4, "C:/Users/Nikolay/Desktop/"))
 
 client.close()

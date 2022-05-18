@@ -23,7 +23,10 @@ function progressListening(){
     if(isPlay){
         setInterval(function(){
             time.style.width = (audio.currentTime / audio.duration * 100) + '%';
-        }, 2)
+        }, 2);
+        setInterval(function(){
+            trackTime.innerHTML = (Math.floor(audio.currentTime) + ' / ' + Math.floor(audio.duration));
+        }, 1);
     }
 }
 btnPlay.addEventListener('click', () => {

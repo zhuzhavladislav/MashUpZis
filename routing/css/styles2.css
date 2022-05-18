@@ -175,3 +175,6 @@ header > hr {
 	text-decoration: none;
 	color: #FFFFFF;
 }
+span#tracktime{
+    padding-left: 25px;
+}

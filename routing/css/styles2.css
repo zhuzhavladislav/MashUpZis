@@ -55,7 +55,8 @@ body{
     margin-right: 10px;
 }
 .btn-genres button:hover{
-    background: linear-gradient(93.7deg, #2603FB 0%, #DC06FF 86.1%);
+    color: #09AF55;
+	background: #FFFFFF;
 }
 .playlist{
     margin: auto;

@@ -4,6 +4,7 @@ const audio = document.querySelector('audio');
 const btnPlay = document.querySelector('.play');
 let time = document.querySelector('.time');
 let isPlay = false;
+let trackTime = document.querySelector('#tracktime');
 
 function playAudio(){
     if(!isPlay){
@@ -25,6 +26,8 @@ function progressListening(){
         }, 2)
     }
 }
-btnPlay.addEventListener('click', playAudio);
-btnPlay.addEventListener('click', toggleBtn);
-btnPlay.addEventListener('click', progressListening);
+btnPlay.addEventListener('click', () => {
+    playAudio();
+    toggleBtn();
+    progressListening();
+});

@@ -109,6 +109,9 @@ body{
     background-color: rgb(154, 154, 154);
     margin: -10px 40px;
 }
+#tracktime{
+    color: #fff;
+}
 /* верстка меню влада */
 body {
 	background-color: #000000;

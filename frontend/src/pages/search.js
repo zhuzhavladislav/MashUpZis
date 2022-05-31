@@ -2,9 +2,11 @@ import React, { useState, Component, useCallback, useContext } from 'react'
 //import '../css/search.css';
 import logo from '../images/Logo.png'
 import lupa from '../images/lupa.svg'
+import empty from '../images/cover/empty.png'
 import axios from 'axios'
-import audio1 from '../audio/done - Rap God Rick.mp3'
+import { Howl } from "howler";
 
+var sound = null;
 
 export default function Search() {
 
@@ -13,25 +15,37 @@ export default function Search() {
   //Для поиска
   const [value, setValue] = useState("");
 
-  //Получаем трек из api
-  const getTrack = useCallback(async () => {
+  //Получаем треки из api
+  const getTrack = useState(async () => {
     try {
       await axios.get('/api/track')
         .then((response) => setTracks(response.data))
     } catch (error) {
-      //console.log(error)
+      console.log(error)
     }
   })
-
-  //Вызываем функцию, без этого не работает
-  getTrack()
 
   //Фильтруем трек для поиска
   const filteredTrack = tracks.filter(track => {
     return track.track_name.toLowerCase().includes(value.toLowerCase());
   })
 
+  //Функция проигрывания песни
+  function soundPlay(src) {
+    if (sound != null) {
+      sound.stop();
+      sound.unload();
+      sound = null;
+    } else {
+      sound = new Howl({
+        src
+      });
+      sound.play()
+    }
+  }
+
   return (
+
     <div>
       <div id="wrapper">
         <header>
@@ -55,33 +69,63 @@ export default function Search() {
         </form>
         <div className="trend3">
           <p>Популярные темы </p>
-          <button className='main-button'>Мэшап</button>
-          <button className='main-button'>Ремикс</button>
-          <button className='main-button'>Блютуз</button>
-          <button className='main-button'>Вуз</button>
+          <button className='main-button'>Оксимирон</button>
+          <button className='main-button'>Смешные</button>
+          <button className='main-button'>2022</button>
+          <button className='main-button'>Из тиктока</button>
         </div>
         {/* Вывод трека */}
         <div className="playlist">
+
           {
             filteredTrack.map((track) => {
               return (
                 <div className="song">
-                  <div className="cover" />
+                  <img src={`http://localhost:5000/uploads/covers/${track._id}.jpg`} className='cover' />
                   <span className='mashup-name2'>{track.author}</span>
                   <span className='mashup-name2'>{track.track_name}</span>
-                  <audio src={audio1} />
+                  <audio src={`http://localhost:5000/uploads/${track._id}.mp3`} />
                   <div className="audio-track">
                     {/*полоска прослушивания*/}
                     <div className="time" />
                   </div>
                   <span id="tracktime">0 / 0</span>
-                  <button className="play" />
+                  <button id={track.id} onClick={() => {
+                    soundPlay(`http://localhost:5000/uploads/${track._id}.mp3`);
+                  }} className="play"></button>
                 </div>
               )
             })
           }
+          <footer>
+          <div id="footer2">
+            <div id="name">
+              <h2>MASHUPZIS</h2>
+            </div>
+            <div className="contacts">
+              <a href="https://ssau.ru/"><h3>SSAU</h3></a>
+              <p>|</p>
+              <a href="https://github.com/algorithm-ssau/MashUpZis"><h3>Github</h3></a>
+              <p> | </p>
+              <a href="https://www.figma.com/file/x3NkJdKiE17ABIP7MDFIpG/MashUpZis?node-id=50%3A22"><h3>Design</h3></a>
+            </div>
+            {/* <div className="up">
+              <h3><img src={arrow_up} alt="" /> Вернуться вверх</h3>
+            </div>
+            <div className="terms">
+              <p>Privacy Policy</p>
+              <p>Terms and Conditions</p>
+              <p>Copyright © 2022</p>
+            </div> */}
+          </div>
+        </footer>
         </div>
+        
       </div>
+
+      {/* Надо фиксить как-то */}
+
     </div>
+    
   );
 }

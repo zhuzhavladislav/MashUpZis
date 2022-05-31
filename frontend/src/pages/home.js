@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-//import '../css/home.css';
-
+import Search from '../pages/search';
 import logo from '../images/Logo.png'
 import figure_main from '../images/figure_main.png'
 import arrow from '../images/arrow.png'
@@ -12,7 +11,10 @@ import play from '../images/play.svg'
 import arrow_up from '../images/arrow-up.svg'
 
 
+
+
 export default class Home extends Component {
+  
   render() {
     return (
       <div>
@@ -34,7 +36,7 @@ export default class Home extends Component {
             <h1>Сборник мэшапов</h1>
             <h2>#mashupzis</h2>
             <p>С 2014 года мы отбираем лучшие работы, а теперь здесь расцветает русскоязычное <br />сообщество мэшаперов. За это время мы опубликовали почти 30 000 мэшапов и <br />аудиоприколов.</p>
-            <a href><button className='main-button'>Подробнее <img src={arrow} alt="" /></button></a>
+            <a href><form action="#legend" target="_self"><button className='main-button'>Подробнее <img src={arrow} alt="" /></button></form></a>
             <img src={tunning_text_temp} width={1050} alt="" />
           </div>
           <div className="what-is-mashup">
@@ -53,13 +55,13 @@ export default class Home extends Component {
                 <div className="legend-mashup-cover legend-mashup-v4"><span className="legend-mashup-name">Мэшап4</span><div className="legend-mashup-border" /><img src={test} className="legend-mashup-cover-img" /><span className="legend-mashup-author">Автор4</span></div>
               </div>
             </div>
-            <div>
+            <div id="legend">
               <h1>Легендарные<br />мэшапы</h1>
-              <p>Ну здесь умный текст, типа много умных слов. Ало дада. Как дела?. блабла бла блабла бла блабла бла  блабла блаблабла бла<br /><br />Тим кук</p>
-              <a href><button className='main-button'>Кнопка тут нужна вообще? <img src={arrow} alt="" /></button></a>
+              <p>Слева Вы можете наблюдать одни из самых значимых мешапов в истории развития.<br /><br />И это ещё не всё...</p>
+              <form action='/search' target="_self"><button className='main-button'>Больше мешапов <img src={arrow} alt="" /></button></form>
             </div>
           </div>
-          <div className="trend">
+          {/* <div className="trend">
             <h1>Узнайте, что<br />в тренде</h1>
             <p>Популярные темы </p>
             <button className='main-button'>Мэшап</button>
@@ -79,7 +81,7 @@ export default class Home extends Component {
           </div>
           <div>
             <a href><button className='main-button' style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: '40px' }}>Больше мэшапов <img src={arrow} alt="" /></button></a>
-          </div>
+          </div> */}
         </div>
         <footer>
           <div id="footer">
@@ -93,14 +95,14 @@ export default class Home extends Component {
               <p> | </p>
               <a href="https://www.figma.com/file/x3NkJdKiE17ABIP7MDFIpG/MashUpZis?node-id=50%3A22"><h3>Design</h3></a>
             </div>
-            <div className="up">
+            {/* <div className="up">
               <h3><img src={arrow_up} alt="" /> Вернуться вверх</h3>
             </div>
             <div className="terms">
               <p>Privacy Policy</p>
               <p>Terms and Conditions</p>
               <p>Copyright © 2022</p>
-            </div>
+            </div> */}
           </div>
         </footer>
 

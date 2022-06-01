@@ -81,17 +81,17 @@ export default function Search() {
             filteredTrack.map((track) => {
               return (
                 <div className="song">
-                  <img src={`http://localhost:5000/uploads/covers/${track._id}.jpg`} className='cover' />
+                  <img src={`/uploads/covers/${track._id}.jpg`} className='cover' />
                   <span className='mashup-name2'>{track.author}</span>
                   <span className='mashup-name2'>{track.track_name}</span>
-                  <audio src={`http://localhost:5000/uploads/${track._id}.mp3`} />
+                  <audio src={`/uploads/${track._id}.mp3`} />
                   <div className="audio-track">
                     {/*полоска прослушивания*/}
                     <div className="time" />
                   </div>
                   <span id="tracktime">0 / 0</span>
                   <button id={track.id} onClick={() => {
-                    soundPlay(`http://localhost:5000/uploads/${track._id}.mp3`);
+                    soundPlay(`/uploads/${track._id}.mp3`);
                   }} className="play"></button>
                 </div>
               )

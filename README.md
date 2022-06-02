@@ -18,3 +18,5 @@
 Планируемый дизайн:
 
 ![alt text](https://github.com/algorithm-ssau/MashUpZis/blob/main/cover.jpg?raw=true)
+
+Также проект можно посмотреть на сайте: http://62.113.111.165:3000/

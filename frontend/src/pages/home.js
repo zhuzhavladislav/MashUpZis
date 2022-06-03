@@ -5,6 +5,9 @@ import figure_main from '../images/figure_main.png'
 import arrow from '../images/arrow.png'
 import tunning_text_temp from '../images/tunning-text-temp.png'
 import element1 from '../images/element1.png'
+import test3 from '../images/cover/6299bae5ac6d8f133f846297.jpg'
+import test2 from '../images/cover/62939c48d70ef9b87bc54557.jpg'
+import test1 from '../images/cover/6299bbbfac6d8f133f84629b.jpg'
 import test from '../images/cover/test.jpg'
 import empty from '../images/cover/empty.png'
 import play from '../images/play.svg'
@@ -47,12 +50,12 @@ export default class Home extends Component {
           <div className="legend-mashup">
             <div>
               <div className="legend-mashup">
-                <div className="legend-mashup-cover legend-mashup-v1"><span className="legend-mashup-name">Мэшап1</span><div className="legend-mashup-border" /><img src={test} className="legend-mashup-cover-img" /><span className="legend-mashup-author">Автор1</span></div>
-                <div className="legend-mashup-cover legend-mashup-v2"><span className="legend-mashup-name">Мэшап2</span><div className="legend-mashup-border" /><img src={test} className="legend-mashup-cover-img" /><span className="legend-mashup-author">Автор2</span></div>
+                <div className="legend-mashup-cover legend-mashup-v1"><span className="legend-mashup-name">Rap God</span><div className="legend-mashup-border" /><img src={test1} className="legend-mashup-cover-img" /><span className="legend-mashup-author">done</span></div>
+                <div className="legend-mashup-cover legend-mashup-v2"><span className="legend-mashup-name">Faded</span><div className="legend-mashup-border" /><img src={test2} className="legend-mashup-cover-img" /><span className="legend-mashup-author">Alan Walker</span></div>
               </div>
               <div className="legend-mashup">
-                <div className="legend-mashup-cover legend-mashup-v3"><span className="legend-mashup-name">Мэшап3</span><div className="legend-mashup-border" /><img src={test} className="legend-mashup-cover-img" /><span className="legend-mashup-author">Автор3</span></div>
-                <div className="legend-mashup-cover legend-mashup-v4"><span className="legend-mashup-name">Мэшап4</span><div className="legend-mashup-border" /><img src={test} className="legend-mashup-cover-img" /><span className="legend-mashup-author">Автор4</span></div>
+                <div className="legend-mashup-cover legend-mashup-v3"><span className="legend-mashup-name">On The Loose</span><div className="legend-mashup-border" /><img src={test3} className="legend-mashup-cover-img" /><span className="legend-mashup-author">Carpenter Brut</span></div>
+                <div className="legend-mashup-cover legend-mashup-v4"><span className="legend-mashup-name">Бойцовский Клуб</span><div className="legend-mashup-border" /><img src={test} className="legend-mashup-cover-img" /><span className="legend-mashup-author">Неизвестен</span></div>
               </div>
             </div>
             <div id="legend">
